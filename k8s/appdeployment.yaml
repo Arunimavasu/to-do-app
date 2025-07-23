@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  namespace: to-do-app
+  labels:
+    app: phpwebapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: phpwebapp
+  template:
+    metadata:
+      labels:
+        app: phpwebapp
+    spec:
+      containers:
+        - name: phpwebapp
+          image: arunima133/phpwebapp:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+          - configMapRef:
+              name: php-config
+          - secretRef:
+              name: php-secret
+      

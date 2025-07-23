@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: php-pod
+  namespace: to-do-app
+  labels:
+    app: php
+spec:
+  nodeName: arunima-u24-worker2
+  containers:
+    - name: phpmyadmin-pod
+      image: phpmyadmin
+      ports:
+        - containerPort: 80
+      envFrom:
+      - configMapRef:
+          name: php-config
+      - secretRef:
+          name: php-secret

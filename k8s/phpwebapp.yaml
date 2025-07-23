@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: phpwebapp-pod
+  namespace: to-do-app
+  labels:
+    app: phpwebapp
+spec:
+  nodeName: arunima-container-u22
+  containers:
+    - name: phpwebapp
+      image: arunima133/phpwebapp:latest

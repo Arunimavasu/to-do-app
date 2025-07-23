@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: db-config
+  namespace: to-do-app
+data:
+  MYSQL_DATABASE: sqldb
